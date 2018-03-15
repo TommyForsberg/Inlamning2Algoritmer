@@ -14,9 +14,20 @@ namespace Inlamning2Algoritmer
         {
             var runtime = new Runtime();
             var numbers = runtime.ReadNumbersFromFile();
+            var numbers2 = runtime.ReadNumbersFromFile();
+            var numbers3 = runtime.ReadNumbersFromFile();
+            var chars = runtime.ReadCharsFromFile();
+            var chars2 = runtime.ReadCharsFromFile();
+            var chars3 = runtime.ReadCharsFromFile();
+
             runtime.BubbleSort(numbers);
-            runtime.MergeSort(numbers);
-            runtime.QuickSort(numbers);
+            runtime.BubbleSort(chars);
+
+            runtime.MergeSort(numbers2);
+            runtime.MergeSort(chars2);
+
+            runtime.QuickSort(numbers3);
+            runtime.QuickSort(chars3);
             Console.ForegroundColor = ConsoleColor.White;
         }
     }

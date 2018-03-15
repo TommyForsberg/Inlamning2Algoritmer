@@ -15,7 +15,17 @@ namespace Inlamning2Algoritmer
             var filePath = Environment.CurrentDirectory + "\\data.txt";
             var lines = File.ReadAllLines(filePath);
             var data = lines[0].Split('\t');
+
             return Array.ConvertAll(data, int.Parse);
+            
+        }
+
+        public string[] ReadCharsFromFile()
+        {
+            var filePath = Environment.CurrentDirectory + "\\data2.txt";
+            var lines = File.ReadAllLines(filePath);
+            var data = lines[0].Split('\t');
+            return data;
         }
 
 
@@ -158,21 +168,24 @@ namespace Inlamning2Algoritmer
 
         public void Print<T>(T[] numbers, string type, Int64 excutionTime)
         {
+            string typeOfData;
+            typeOfData = numbers.GetType().ToString();
+            typeOfData = typeOfData.Substring(7);
             if (type == "Bubble")
             {
                 Console.ForegroundColor = ConsoleColor.DarkCyan;
-                Console.WriteLine("Bubble sorted:   (Execution time: {0} ms)", excutionTime);
+                Console.WriteLine("Data type : {0} Bubble sorted:   (Execution time: {1} ms)", typeOfData, excutionTime);
 
             }
             else if (type == "Merge")
             {
                 Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine("Merge sorted:   (Execution time: {0} ms)", excutionTime);
+                Console.WriteLine("Data type : {0} Merge sorted:   (Execution time: {1} ms)", typeOfData, excutionTime);
             }
             else if (type == "Quick")
             {
                 Console.ForegroundColor = ConsoleColor.Magenta;
-                Console.WriteLine("Quick sorted:   (Execution time: {0} ms)", excutionTime);
+                Console.WriteLine("Data type : {0} Quick sorted:   (Execution time: {1} ms)", typeOfData, excutionTime);
             }
             foreach(var number in numbers)
             {
